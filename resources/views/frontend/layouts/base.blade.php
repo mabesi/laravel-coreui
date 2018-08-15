@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel - CoreUI') }}</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ asset("frontend/vendor/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet">
+    <link href="{{ asset("frontend/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet">
 
     <!-- All Extra CSS -->
     @stack('all_css')
@@ -30,8 +30,8 @@
     @yield('body')
 
     <!-- Bootstrap core JavaScript -->
-    <script src="{{ asset("frontend/vendor/jquery/jquery.min.js") }}"></script>
-    <script src="{{ asset("frontend/vendor/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
+    <script src="{{ asset("frontend/jquery/jquery.min.js") }}"></script>
+    <script src="{{ asset("frontend/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
 
     <!-- All Extra Scripts -->
     @stack('all_scripts')
