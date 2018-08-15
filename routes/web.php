@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('backend.layouts.panel');
+Route::get('/slider', function () {
+    return view('frontend.slider');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');

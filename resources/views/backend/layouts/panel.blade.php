@@ -2,43 +2,43 @@
 
 @push('all_css')
 
-  <!-- Backend Page Extra CSS -->
-  @stack('css')
+<!-- Backend Page Extra CSS -->
+@stack('css')
 @endpush
 
 @section('body')
 
-  <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
 
-    @include('backend.layouts.navbar')
+  @include('backend.layouts.navbar')
 
-    <div class="app-body">
+  <div class="app-body">
 
-      @include('backend.layouts.sidemenu')
+    @include('backend.layouts.sidemenu')
 
-      <main class="main">
+    <main class="main">
 
-        @include('backend.layouts.breadcrumbs')
+      @include('backend.layouts.breadcrumbs')
 
-        <div class="container-fluid">
-          <div class="animated fadeIn">
+      <div class="container-fluid">
+        <div class="animated fadeIn">
 
-            @yield('content')
+          @yield('content')
 
-          </div>
         </div>
-      </main>
+      </div>
+    </main>
 
-      @include('backend.layouts.tabpanel')
+    @include('backend.layouts.tabpanel')
 
-    </div><!-- End of app-body -->
+  </div><!-- End of app-body -->
 
-    @include('backend.layouts.footer')
-
-  @endsection
+  @include('backend.layouts.footer')
 
   @push('all_scripts')
 
-    <!-- Backend Page Extra Scripts -->
-    @stack('scripts')
+  <!-- Backend Page Extra Scripts -->
+  @stack('scripts')
   @endpush
+  
+  @endsection
