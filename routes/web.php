@@ -14,6 +14,12 @@
 Route::get('/slider', function () {
     return view('frontend.slider');
 });
+Route::get('/404', function () {
+    return view('backend.errors.404');
+});
+Route::get('/500', function () {
+    return view('backend.errors.500');
+});
 
 Auth::routes();
 

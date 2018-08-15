@@ -2,8 +2,8 @@
 
 @push('all_css')
 
-<!-- Backend Page Extra CSS -->
-@stack('css')
+  <!-- Backend Page Extra CSS -->
+  @stack('css')
 @endpush
 
 @section('body')
@@ -40,5 +40,5 @@
   <!-- Backend Page Extra Scripts -->
   @stack('scripts')
   @endpush
-  
+
   @endsection
