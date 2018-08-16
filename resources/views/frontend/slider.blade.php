@@ -1,8 +1,7 @@
 @extends('frontend.layouts.frontpage')
 
 @push('css')
-  <!-- Business Frontpage -->
-  <link href="{{ asset("css/half-slider.css") }}" rel="stylesheet">
+
 @endpush
 
 @section('content')

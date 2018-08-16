@@ -25,25 +25,25 @@
 
                 {{ csrf_field() }}
 
-                <div class="input-group mb-3 {{ $errors->has('email')?'has-error' : '' }}">
+                <div class="input-group mb-3{{ $errors->has('email')?' was-validated' : '' }}">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-user"></i></span>
                   </div>
                   <input class="form-control" type="email" name="email" value="{{ old('email') }}" placeholder="E-mail" required>
                   @if ($errors->has('email'))
-                  <span class="help-block">
+                  <span class="invalid-feedback">
                     <strong>{{ $errors->first('email') }}</strong>
                   </span>
                   @endif
                 </div>
 
-                <div class="input-group mb-4 {{ $errors->has('password') ? ' has-error' : '' }}">
+                <div class="input-group mb-4{{ $errors->has('password') ? ' was-validated' : '' }}">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-lock"></i></span>
                   </div>
                   <input class="form-control" type="password" name="password" placeholder="Password" required>
                   @if ($errors->has('password'))
-                  <span class="help-block">
+                  <span class="invalid-feedback">
                     <strong>{{ $errors->first('password') }}</strong>
                   </span>
                   @endif

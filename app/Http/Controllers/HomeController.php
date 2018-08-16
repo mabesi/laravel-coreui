@@ -28,4 +28,14 @@ class HomeController extends Controller
         //return view('backend.layouts.panel');
 
     }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function terms()
+    {
+        return view('frontend.terms');
+    }
 }

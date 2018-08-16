@@ -24,47 +24,58 @@
 
               {{ csrf_field() }}
 
-              <div class="input-group mb-3{{ $errors->has('name') ? ' has-error' : '' }}">
+              <div class="input-group mb-2{{ $errors->has('name')?' was-validated':'' }}">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="icon-user"></i></span>
                 </div>
                 <input class="form-control" type="text" name="name" value="{{ old('name') }}" placeholder="Username" required>
                 @if ($errors->has('name'))
-                <span class="help-block">
+                <span class="invalid-feedback">
                   <strong>{{ $errors->first('name') }}</strong>
                 </span>
                 @endif
               </div>
 
-              <div class="input-group mb-3{{ $errors->has('email') ? ' has-error' : '' }}">
+              <div class="input-group mb-2{{ $errors->has('email') ? ' was-validated' : '' }}">
                 <div class="input-group-prepend">
                   <span class="input-group-text">@</span>
                 </div>
                 <input class="form-control" type="email" name="email" value="{{ old('email') }}" placeholder="Email" required>
                 @if ($errors->has('email'))
-                <span class="help-block">
+                <span class="invalid-feedback">
                   <strong>{{ $errors->first('email') }}</strong>
                 </span>
                 @endif
               </div>
 
-              <div class="input-group mb-3{{ $errors->has('password') ? ' has-error' : '' }}">
+              <div class="input-group mb-2{{ $errors->has('password') ? ' was-validated' : '' }}">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="icon-lock"></i></span>
                 </div>
                 <input class="form-control" type="password" name="password" placeholder="Password" required>
                 @if ($errors->has('password'))
-                <span class="help-block">
+                <span class="invalid-feedback">
                   <strong>{{ $errors->first('password') }}</strong>
                 </span>
                 @endif
               </div>
 
-              <div class="input-group mb-4">
+              <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="icon-lock"></i></span>
                 </div>
                 <input class="form-control" type="password" name="password_confirmation" placeholder="Repeat password" required>
+              </div>
+
+              <div class="input-group mb-2{{ $errors->has('password') ? ' was-validated' : '' }}">
+                <label class="checkbox text-muted">
+                  <input type="checkbox" name="terms" {{ old('terms') ? 'checked' : '' }}> I agree to the <a href="{{ route('terms') }}" target="_blank">terms</a>.
+                </label>
+                @if ($errors->has('terms'))
+                <span class="invalid-feedback">
+                  <strong>{{ $errors->first('terms') }}</strong>
+                </span>
+                @endif
               </div>
 
               <button class="btn btn-block btn-warning" type="submit">Create Account</button>
