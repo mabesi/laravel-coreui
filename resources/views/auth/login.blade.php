@@ -74,7 +74,7 @@
             <div class="card-body text-center">
               <div>
                 <h2>Sign up</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Create an account and be part of our community.</p>
                 <a href="{{ route('register') }}" class="btn btn-primary active mt-3">Register Now!</a>
               </div>
             </div>

@@ -60,11 +60,16 @@
                 @endif
               </div>
 
-              <div class="input-group mb-3">
+              <div class="input-group mb-3{{ $errors->has('password_confirmation') ? ' was-validated' : '' }}">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="icon-lock"></i></span>
                 </div>
                 <input class="form-control" type="password" name="password_confirmation" placeholder="Repeat password" required>
+                @if ($errors->has('password_confirmation'))
+                <span class="invalid-feedback">
+                  <strong>{{ $errors->first('password_confirmation') }}</strong>
+                </span>
+                @endif
               </div>
 
               <div class="input-group mb-2{{ $errors->has('password') ? ' was-validated' : '' }}">

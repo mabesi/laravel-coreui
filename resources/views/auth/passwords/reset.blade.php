@@ -1,70 +1,83 @@
-@extends('layouts.app')
+@extends('backend.layouts.base')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+@push('all_css')
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('password.request') }}">
-                        {{ csrf_field() }}
+<!-- Backend Page Extra CSS -->
+@stack('css')
+@endpush
 
-                        <input type="hidden" name="token" value="{{ $token }}">
+@section('body')
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+<body class="app flex-row align-items-center">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card mx-4">
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+          <form method="POST" action="{{ route('password.request') }}">
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+            <div class="card-body p-4">
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+              <h1>New Password</h1>
+              <p class="text-muted">Enter your email and your new password</p>
 
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+              {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Reset Password
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+              <div class="input-group mb-2{{ $errors->has('email') ? ' was-validated' : '' }}">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">@</span>
                 </div>
+                <input class="form-control" id="email" type="email" name="email" value="{{ $email or old('email') }}" placeholder="Email" required>
+                @if ($errors->has('email'))
+                <span class="invalid-feedback">
+                  <strong>{{ $errors->first('email') }}</strong>
+                </span>
+                @endif
+              </div>
+
+              <div class="input-group mb-2{{ $errors->has('password') ? ' was-validated' : '' }}">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-lock"></i></span>
+                </div>
+                <input class="form-control" id="password" type="password" name="password" placeholder="New password" required>
+                @if ($errors->has('password'))
+                <span class="invalid-feedback">
+                  <strong>{{ $errors->first('password') }}</strong>
+                </span>
+                @endif
+              </div>
+
+              <div class="input-group mb-3{{ $errors->has('password_confirm') ? ' was-validated' : '' }}">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-lock"></i></span>
+                </div>
+                <input class="form-control" id="password_confirm" type="password" name="password_confirmation" placeholder="Repeat new password" required>
+                @if ($errors->has('password_confirmation'))
+                <span class="invalid-feedback">
+                  <strong>{{ $errors->first('password_confirm') }}</strong>
+                </span>
+                @endif
+              </div>
+
             </div>
+
+            <div class="card-footer p-4">
+              <button class="btn btn-block btn-primary" type="submit">Reset Password</button>
+            </div>
+
+          </form>
+
+          </div>
         </div>
+      </div>
     </div>
-</div>
-@endsection
+  </div>
+
+  @push('all_scripts')
+
+  <!-- Backend Page Extra Scripts -->
+  @stack('scripts')
+  @endpush
+
+  @endsection
